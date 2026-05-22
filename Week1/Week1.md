@@ -57,17 +57,11 @@ $$
 Substitute the expressions for \(y_t\) and \(y_{t-1}\):
 
 $$
-z_t =
-(\beta_0 + \beta_1 t + \varepsilon_t)
--
-(\beta_0 + \beta_1 (t-1) + \varepsilon_{t-1})
+z_t = (\beta_0 + \beta_1 t + \varepsilon_t) - (\beta_0 + \beta_1 (t-1) + \varepsilon_{t-1})
 $$
 
 $$
-z_t =
-\beta_0 + \beta_1 t + \varepsilon_t
--
-\beta_0 - \beta_1 t + \beta_1 - \varepsilon_{t-1}
+z_t = \beta_0 + \beta_1 t + \varepsilon_t - \beta_0 - \beta_1 t + \beta_1 - \varepsilon_{t-1}
 $$
 
 $$
@@ -89,11 +83,7 @@ $$
 Assuming the errors are independent:
 
 $$
-Var(z_t)
-=
-Var(\varepsilon_t - \varepsilon_{t-1})
-
-= 2\sigma^2
+Var(z_t) = Var(\varepsilon_t - \varepsilon_{t-1}) = 2\sigma^2
 $$
 Hence, using first differencing, this series is stationary.
 
