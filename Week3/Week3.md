@@ -18,12 +18,15 @@ For this week, we will focus on implementing MACD and RSI from scratch.
 
 **Moving Average Convergence Divergence (MACD):** 
 A trend-following momentum indicator showing the relationship between two exponential moving averages (EMAs). It is calculated by subtracting the 26-period EMA from the 12-period EMA:
-    $$MACD = EMA_{12} - EMA_{26}$$
+
+$$MACD = EMA_{12} - EMA_{26}$$
 
 To build the MACD, we first need to understand the **Exponential Moving Average (EMA)**. Unlike a simple moving average (SMA) which gives equal weight to all days, the EMA places a greater weight and significance on the most recent data points, making it more responsive to new information. 
 
 The formula for an EMA at time $t$ is:
+
 $$EMA_t = \left( Price_t \times \frac{2}{N + 1} \right) + \left( EMA_{t-1} \times \left( 1 - \frac{2}{N + 1} \right) \right)$$
+
 Where $N$ is the number of lookback periods.
 
 The MACD line is calculated by subtracting the long-term EMA from the short-term EMA (traditionally 26-period and 12-period):
@@ -62,13 +65,13 @@ We can write a filter to ensure that any MACD signal is accompanied by a mathema
 
 We calculate a rolling Simple Moving Average (SMA) of volume:
 
-$$SMA\_Vol_t = \frac{1}{W} \sum_{i=0}^{W-1} Volume_{t-i}$$
+$$SMA_t^{Vol} = \frac{1}{W} \sum_{i=0}^{W-1} Volume_{t-i}$$
 
 where $W$ is the lookback window.
 
 We then define a threshold multiplier $c$:
 
-$$Volume_t > c \times SMA\_Vol_t$$
+$$Volume_t > c \times SMA_t^{Vol}$$
 
 A signal is only considered valid if the current volume exceeds this threshold.
 
