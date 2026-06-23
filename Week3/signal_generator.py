@@ -20,4 +20,7 @@ def final_strategy(prices, volumes):
             signals.append(i)
     return signals
 
+signal = final_strategy(prices,volumes)
+print(signal)
+
 
